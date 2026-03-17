@@ -16,15 +16,30 @@ My custom skills for [Claude Code](https://docs.anthropic.com/en/docs/claude-cod
 
 ## Install
 
-Copy any skill directory into `~/.claude/skills/`, then restart Claude Code.
+### Via Marketplace (Recommended)
 
-```bash
-# Example: install a single skill
-cp -r ljg-plain ~/.claude/skills/
-
-# Or clone the whole repo
-git clone https://github.com/lijigang/ljg-skills.git /tmp/ljg-skills
-cp -r /tmp/ljg-skills/ljg-* ~/.claude/skills/
+```
+/plugin marketplace add lijigang/ljg-skills
 ```
 
-Note: `ljg-card` requires Playwright for screenshot capture. Run `cd ~/.claude/skills/ljg-card && npm install` after installing.
+### Manual Install
+
+```bash
+git clone https://github.com/lijigang/ljg-skills.git ~/.claude/plugins/ljg-skills
+```
+
+Then restart Claude Code.
+
+### ljg-card Dependencies
+
+`ljg-card` requires Playwright for screenshot capture:
+
+```bash
+cd ~/.claude/plugins/ljg-skills && bash scripts/install.sh
+```
+
+Or manually:
+
+```bash
+cd ~/.claude/plugins/ljg-skills/skills/ljg-card && npm install && npx playwright install chromium
+```
